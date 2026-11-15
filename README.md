@@ -5,18 +5,20 @@
 
 ## Орчин
 
-```
-> java -version
-java version "22.0.1" 2024-04-16
-Java(TM) SE Runtime Environment (build 22.0.1+8-16)
-Java HotSpot(TM) 64-Bit Server VM (build 22.0.1+8-16, mixed mode, sharing)
+Төслийг **WSL2 (Ubuntu)** дээр ажиллуулсан (`/mnt/d/projects/ProgramTestLab10`). `pom.xml`-д `maven.compiler.release=17` тул OpenJDK 17 ашигласан.
 
-> mvn -version
+```
+$ java -version
+openjdk version "17.0.21.0.3" 2026-10-24
+OpenJDK Runtime Environment (build 17.0.21.0.3+1-1-26.04.1-Ubuntu)
+OpenJDK 64-Bit Server VM (build 17.0.21.0.3+1-1-26.04.1-Ubuntu, mixed mode, sharing)
+
+$ mvn --version
 Apache Maven 3.9.9 (8e8579a9e76f7d015ee5ec7bfcdc97d260186937)
-Maven home: C:\Program Files\apache-maven-3.9.9-bin\apache-maven-3.9.9
-Java version: 22.0.1, vendor: Oracle Corporation, runtime: C:\Program Files\Java\jdk-22
-Default locale: en_US, platform encoding: UTF-8
-OS name: "windows 11", version: "10.0", arch: "amd64", family: "windows"
+Maven home: /mnt/c/Program Files/apache-maven-3.9.9-bin/apache-maven-3.9.9
+Java version: 17.0.21.0.3, vendor: Ubuntu, runtime: /usr/lib/jvm/java-17-openjdk-amd64
+Default locale: en, platform encoding: UTF-8
+OS name: "linux", version: "6.6.114.1-microsoft-standard-wsl2", arch: "amd64", family: "unix"
 ```
 
 `mvn verify` (эцсийн): **Tests run: 16, Failures: 0** — `results/mvn-verify-final.txt`
