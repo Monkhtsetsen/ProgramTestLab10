@@ -3,6 +3,26 @@
 **Нэр:** Түмэннасан Мөнхцэцэн  
 **Оюутны код:** *B232270025*  
 
+## Орчин
+
+```
+> java -version
+java version "22.0.1" 2024-04-16
+Java(TM) SE Runtime Environment (build 22.0.1+8-16)
+Java HotSpot(TM) 64-Bit Server VM (build 22.0.1+8-16, mixed mode, sharing)
+
+> mvn -version
+Apache Maven 3.9.9 (8e8579a9e76f7d015ee5ec7bfcdc97d260186937)
+Maven home: C:\Program Files\apache-maven-3.9.9-bin\apache-maven-3.9.9
+Java version: 22.0.1, vendor: Oracle Corporation, runtime: C:\Program Files\Java\jdk-22
+Default locale: en_US, platform encoding: UTF-8
+OS name: "windows 11", version: "10.0", arch: "amd64", family: "windows"
+```
+
+`mvn verify` (эцсийн): **Tests run: 16, Failures: 0** — `results/mvn-verify-final.txt`
+
+---
+
 ## Хэсэг A — `gcd` DU хосууд
 
 Файлын мөр (`DataFlowTargets.java`): def `x`,`y` — **13**; `while` **15**; `tmp` **16**; `x` **17**; `y` **18**; `return` **20**.
@@ -121,4 +141,31 @@ All-defs хангагдсан ч branch 100% биш — нэг predicate сал�
 
 ### B5 (үргэлжлэл) — JaCoCo all-DU-pairs
 
-Бүх 16 тестийн дараа `BRANCH_MISSED=0` (16/16) — эцсийн `jacoco-final.csv` Хэсэг C-ийн дараа `results/`-д хадгална. Branch 100% байсан ч DU хүснэгтэд “биелэшгүй” хос байж болно — **branch ≠ DU**.
+| Тайлан | BRANCH_MISSED | BRANCH_COVERED | LINE_MISSED | LINE_COVERED |
+|--------|---------------|----------------|-------------|--------------|
+| `results/jacoco-alldefs.csv` | 1 | 15 | 1 | 23 |
+| `results/jacoco-final.csv` | 0 | 16 | 1 | 23 |
+
+All-defs үед branch 15/16; бүх 16 тестийн дараа **16/16** branch. `LINE_MISSED=1` — мөр 7, далд конструктор (хэвийн). Branch 100% байсан ч DU хүснэгтэд биелэшгүй хос үлдэж болно — **branch ≠ DU** (лекц 10).
+
+---
+
+## Хэсэг C — Fault seeding
+
+`DataFlowTargets.java` эх хувилбарыг мутаци бүрийн дараа `git restore`-оор буцаасан (эцэст commit-д өөрчлөлтгүй).
+
+| ID | Мутаци | Төрөл | Үр дүн (`results/`) |
+|----|--------|-------|---------------------|
+| M1 | `streak = streak + 1` устгасан | Missing update | **5** тест унав — `mvn-test-M1.txt` (ж: `fullScore_thresholdAndStreakBonus` expected 8, was 5; `bonusOnly_...` expected 3, was 0) |
+| M2 | `best = streak` → `best = present` | Wrong use | **1** тест унав — `m2_kill_bestMustTrackStreakNotPresent` expected 5, was 8 (`mvn-test-M2.txt`; зөвхөн kill тест: `mvn-test-M2-kill.txt`) |
+| M3 | `int total = present + best;` нэмсэн | Dead definition | **0** унав — `mvn-test-M3.txt` BUILD SUCCESS; IDE: *Variable 'total' is never used* |
+
+**M2 тайлбар:** `{1,1,0,1,1,1}`, `threshold=0` — зөв код `best=3` (оноо 5), M2 дээр L43 `best=present` болоход `best=5` (+3) → 8. `streak > best` strict тул зарим том массивт алдаа нуугдана; kill тест `present` ба `streak`-ийг ялгана.
+
+**M3 тайлбар:** Гүйцэтгэлийн тест харж чадахгүй; static analysis (IDE / SpotBugs) dead store гэж анхааруулна.
+
+---
+
+## Дүгнэлт
+
+DU анализ def→use зам, kill, def-clear-ийг шууд заадаг тул урсгалын алдаа (M1 streak def дутуу, M2 буруу use) ихэнхдээ илрүүлнэ; branch 100% (JaCoCo) үүнийг бүрэн орлохгүй (M2 зарим сценариар “амьд”, M3 ерөөс тестэд илрэхгүй). Хамгийн их хугацаа bonus DU хүснэгт, CFG, all-defs-ийн 5 тестийн үндэслэл, M2 kill тестэнд орсон. Fault seeding M1-ийн тодорхой байх нь DU чиглэлийн тестийн давуу талыг, M3-ийн үл илрэх нь static analysis-ийн шаардлагыг харуулна.
