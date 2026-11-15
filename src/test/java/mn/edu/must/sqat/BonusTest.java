@@ -43,4 +43,54 @@ class BonusTest {
             assertEquals(5, DataFlowTargets.bonus(new int[] {}, 0));
         }
     }
+
+    @Nested
+    @DisplayName("All-DU-pairs and branch coverage")
+    class AllDuPairs {
+
+        @Test
+        @DisplayName("DU threshold L31-L50; score L51 base only")
+        void baseOnly_exactThreshold() {
+            assertEquals(5, DataFlowTargets.bonus(new int[] {1, 1, 1}, 3));
+        }
+
+        @Test
+        @DisplayName("DU score L54; bonus only best>=5 without base")
+        void bonusOnly_belowThreshold_longStreak() {
+            assertEquals(3, DataFlowTargets.bonus(new int[] {1, 1, 1, 1, 1}, 10));
+        }
+
+        @Test
+        @DisplayName("DU best L43 streak>best false branch L42")
+        void bestUnchanged_whenStreakNotGreater() {
+            assertEquals(3, DataFlowTargets.bonus(new int[] {1, 1, 1, 1, 1, 1, 1, 1, 1, 1}, 20));
+        }
+
+        @Test
+        @DisplayName("DU present L40 accumulated; broken streak before five")
+        void longStreakBroken_middle() {
+            assertEquals(3, DataFlowTargets.bonus(new int[] {1, 1, 1, 1, 0, 1, 1, 1, 1, 1}, 100));
+        }
+
+        @Test
+        @DisplayName("DU streak L41 loop; five-plus streak L53")
+        void streakLongerThanFive() {
+            assertEquals(8, DataFlowTargets.bonus(new int[] {1, 1, 1, 1, 1, 1, 1}, 3));
+        }
+
+        @Test
+        @DisplayName("p-use threshold negative L32")
+        void invalid_negativeThreshold() {
+            assertThrows(IllegalArgumentException.class, () -> DataFlowTargets.bonus(new int[] {1}, -1));
+        }
+
+        /**
+         * Kills M2 (best = present): max streak 3 but present=5 at L43.
+         */
+        @Test
+        @DisplayName("M2-kill: thr=0 streak 3 present 5 at line 43")
+        void m2_kill_bestMustTrackStreakNotPresent() {
+            assertEquals(5, DataFlowTargets.bonus(new int[] {1, 1, 0, 1, 1, 1}, 0));
+        }
+    }
 }

@@ -74,10 +74,10 @@ Kill: **мөр 46** `streak = 0` нь streak-ийн өмнөх def (ж: L41)-и�
 | present | 35 | 40 | c-use | — | `fullScore_...` |
 | present | 40 | 50 | p-use | loop | `streakKill_...` |
 | streak | 36 | 41 | c-use | — | `fullScore_...` |
-| streak | 41 | 42 | p-use | — | *(all-DU-pairs шат)* |
+| streak | 41 | 42 | p-use | — | `bestUnchanged_whenStreakNotGreater` |
 | streak | 46 | 42 | p-use | **kill** | `streakKill_midStreakBreak` |
 | best | 37 | 43 | def→use дотоод | — | `fullScore_...` |
-| best | 43 | 53 | p-use | — | *(all-DU-pairs шат)* |
+| best | 43 | 53 | p-use | — | `bonusOnly_belowThreshold_longStreak`, `streakLongerThanFive` |
 | a | 38 | 39 | p-use | — | `fullScore_...` |
 | score | 49 | 56 | c-use | return | `zeroScore_allAbsent` |
 | score | 51 | 54 | c-use | — | `fullScore_...` |
@@ -104,3 +104,21 @@ Kill: **мөр 46** `streak = 0` нь streak-ийн өмнөх def (ж: L41)-и�
 `results/jacoco-alldefs.csv`: **BRANCH_MISSED=1**, BRANCH_COVERED=15; LINE_MISSED=1 (далд конструктор).
 
 All-defs хангагдсан ч branch 100% биш — нэг predicate салаа (ж: `streak > best` F эсвэл `best >= 5` F) all-DU-pairs тестээр нөхөнө.
+
+### B4 (үргэлжлэл) — All-DU-pairs тестүүд
+
+`mvn test -Dtest=BonusTest$AllDuPairs` → **Tests run: 7, Failures: 0**. Бүтэн `mvn verify` → **Tests run: 16**.
+
+| Тест ID | Нэмэлт DU / branch |
+|---------|-------------------|
+| `baseOnly_exactThreshold` | threshold L50, score L51 |
+| `bonusOnly_belowThreshold_longStreak` | best L53, streak L41→L43 |
+| `bestUnchanged_whenStreakNotGreater` | L42 false салалт |
+| `longStreakBroken_middle` | best L53 без threshold |
+| `streakLongerThanFive` | present + streak урт |
+| `invalid_negativeThreshold` | threshold &lt; 0 |
+| `m2_kill_bestMustTrackStreakNotPresent` | best L43 буруу def (M2 kill) |
+
+### B5 (үргэлжлэл) — JaCoCo all-DU-pairs
+
+Бүх 16 тестийн дараа `BRANCH_MISSED=0` (16/16) — эцсийн `jacoco-final.csv` Хэсэг C-ийн дараа `results/`-д хадгална. Branch 100% байсан ч DU хүснэгтэд “биелэшгүй” хос байж болно — **branch ≠ DU**.
