@@ -30,8 +30,8 @@
 [INFO] -------------------------------------------------------
 [INFO] Running mn.edu.must.sqat.BonusTest
 [INFO] Running mn.edu.must.sqat.BonusTest$AllDuPairs
-[ERROR] Tests run: 7, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.477 s <<< FAILURE! -- in mn.edu.must.sqat.BonusTest$AllDuPairs
-[ERROR] mn.edu.must.sqat.BonusTest$AllDuPairs.m2_kill_bestMustTrackStreakNotPresent -- Time elapsed: 0.048 s <<< FAILURE!
+[ERROR] Tests run: 10, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.404 s <<< FAILURE! -- in mn.edu.must.sqat.BonusTest$AllDuPairs
+[ERROR] mn.edu.must.sqat.BonusTest$AllDuPairs.m2_kill_bestMustTrackStreakNotPresent -- Time elapsed: 0.040 s <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <5> but was: <8>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -39,30 +39,30 @@ org.opentest4j.AssertionFailedError: expected: <5> but was: <8>
 	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:150)
 	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:145)
 	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:531)
-	at mn.edu.must.sqat.BonusTest$AllDuPairs.m2_kill_bestMustTrackStreakNotPresent(BonusTest.java:93)
+	at mn.edu.must.sqat.BonusTest$AllDuPairs.m2_kill_bestMustTrackStreakNotPresent(BonusTest.java:97)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
 [INFO] Running mn.edu.must.sqat.BonusTest$AllDefinitions
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.038 s -- in mn.edu.must.sqat.BonusTest$AllDefinitions
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.660 s -- in mn.edu.must.sqat.BonusTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s -- in mn.edu.must.sqat.BonusTest$AllDefinitions
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.548 s -- in mn.edu.must.sqat.BonusTest
 [INFO] Running mn.edu.must.sqat.GcdTest
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.034 s -- in mn.edu.must.sqat.GcdTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 s -- in mn.edu.must.sqat.GcdTest
 [INFO] 
 [INFO] Results:
 [INFO] 
 [ERROR] Failures: 
-[ERROR]   BonusTest$AllDuPairs.m2_kill_bestMustTrackStreakNotPresent:93 expected: <5> but was: <8>
+[ERROR]   BonusTest$AllDuPairs.m2_kill_bestMustTrackStreakNotPresent:97 expected: <5> but was: <8>
 [INFO] 
 [ERROR] Tests run: 16, Failures: 1, Errors: 0, Skipped: 0
 [INFO] 
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  16.156 s
-[INFO] Finished at: 2026-11-15T12:39:09+08:00
+[INFO] Total time:  12.505 s
+[INFO] Finished at: 2026-11-20T16:08:24+08:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.2.5:test (default-test) on project lab10-dataflow: There are test failures.
 [ERROR] 

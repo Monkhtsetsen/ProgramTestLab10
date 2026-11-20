@@ -30,8 +30,8 @@
 [INFO] -------------------------------------------------------
 [INFO] Running mn.edu.must.sqat.BonusTest
 [INFO] Running mn.edu.must.sqat.BonusTest$AllDuPairs
-[ERROR] Tests run: 7, Failures: 4, Errors: 0, Skipped: 0, Time elapsed: 0.472 s <<< FAILURE! -- in mn.edu.must.sqat.BonusTest$AllDuPairs
-[ERROR] mn.edu.must.sqat.BonusTest$AllDuPairs.bonusOnly_belowThreshold_longStreak -- Time elapsed: 0.055 s <<< FAILURE!
+[ERROR] Tests run: 10, Failures: 4, Errors: 0, Skipped: 0, Time elapsed: 0.394 s <<< FAILURE! -- in mn.edu.must.sqat.BonusTest$AllDuPairs
+[ERROR] mn.edu.must.sqat.BonusTest$AllDuPairs.bonusOnly_belowThreshold_longStreak -- Time elapsed: 0.035 s <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <3> but was: <0>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -39,13 +39,13 @@ org.opentest4j.AssertionFailedError: expected: <3> but was: <0>
 	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:150)
 	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:145)
 	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:531)
-	at mn.edu.must.sqat.BonusTest$AllDuPairs.bonusOnly_belowThreshold_longStreak(BonusTest.java:60)
+	at mn.edu.must.sqat.BonusTest$AllDuPairs.bonusOnly_belowThreshold_longStreak(BonusTest.java:46)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
-[ERROR] mn.edu.must.sqat.BonusTest$AllDuPairs.bestUnchanged_whenStreakNotGreater -- Time elapsed: 0.006 s <<< FAILURE!
+[ERROR] mn.edu.must.sqat.BonusTest$AllDuPairs.bestUnchanged_whenStreakNotGreater -- Time elapsed: 0.004 s <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <3> but was: <0>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -53,13 +53,13 @@ org.opentest4j.AssertionFailedError: expected: <3> but was: <0>
 	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:150)
 	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:145)
 	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:531)
-	at mn.edu.must.sqat.BonusTest$AllDuPairs.bestUnchanged_whenStreakNotGreater(BonusTest.java:66)
+	at mn.edu.must.sqat.BonusTest$AllDuPairs.bestUnchanged_whenStreakNotGreater(BonusTest.java:52)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
-[ERROR] mn.edu.must.sqat.BonusTest$AllDuPairs.streakLongerThanFive -- Time elapsed: 0.004 s <<< FAILURE!
+[ERROR] mn.edu.must.sqat.BonusTest$AllDuPairs.streakLongerThanFive -- Time elapsed: 0.003 s <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <8> but was: <5>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -67,13 +67,13 @@ org.opentest4j.AssertionFailedError: expected: <8> but was: <5>
 	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:150)
 	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:145)
 	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:531)
-	at mn.edu.must.sqat.BonusTest$AllDuPairs.streakLongerThanFive(BonusTest.java:78)
+	at mn.edu.must.sqat.BonusTest$AllDuPairs.streakLongerThanFive(BonusTest.java:64)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
-[ERROR] mn.edu.must.sqat.BonusTest$AllDuPairs.longStreakBroken_middle -- Time elapsed: 0.004 s <<< FAILURE!
+[ERROR] mn.edu.must.sqat.BonusTest$AllDuPairs.longStreakBroken_middle -- Time elapsed: 0.005 s <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <3> but was: <0>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -81,48 +81,48 @@ org.opentest4j.AssertionFailedError: expected: <3> but was: <0>
 	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:150)
 	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:145)
 	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:531)
-	at mn.edu.must.sqat.BonusTest$AllDuPairs.longStreakBroken_middle(BonusTest.java:72)
+	at mn.edu.must.sqat.BonusTest$AllDuPairs.longStreakBroken_middle(BonusTest.java:58)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
 [INFO] Running mn.edu.must.sqat.BonusTest$AllDefinitions
-[ERROR] Tests run: 5, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.030 s <<< FAILURE! -- in mn.edu.must.sqat.BonusTest$AllDefinitions
-[ERROR] mn.edu.must.sqat.BonusTest$AllDefinitions.fullScore_thresholdAndStreakBonus -- Time elapsed: 0.003 s <<< FAILURE!
-org.opentest4j.AssertionFailedError: expected: <8> but was: <5>
+[ERROR] Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.013 s <<< FAILURE! -- in mn.edu.must.sqat.BonusTest$AllDefinitions
+[ERROR] mn.edu.must.sqat.BonusTest$AllDefinitions.defs_score49_killThenBonus -- Time elapsed: 0.003 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <3> but was: <0>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
 	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
 	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:150)
 	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:145)
 	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:531)
-	at mn.edu.must.sqat.BonusTest$AllDefinitions.fullScore_thresholdAndStreakBonus(BonusTest.java:19)
+	at mn.edu.must.sqat.BonusTest$AllDefinitions.defs_score49_killThenBonus(BonusTest.java:23)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.643 s -- in mn.edu.must.sqat.BonusTest
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.521 s -- in mn.edu.must.sqat.BonusTest
 [INFO] Running mn.edu.must.sqat.GcdTest
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 s -- in mn.edu.must.sqat.GcdTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s -- in mn.edu.must.sqat.GcdTest
 [INFO] 
 [INFO] Results:
 [INFO] 
 [ERROR] Failures: 
-[ERROR]   BonusTest$AllDefinitions.fullScore_thresholdAndStreakBonus:19 expected: <8> but was: <5>
-[ERROR]   BonusTest$AllDuPairs.bestUnchanged_whenStreakNotGreater:66 expected: <3> but was: <0>
-[ERROR]   BonusTest$AllDuPairs.bonusOnly_belowThreshold_longStreak:60 expected: <3> but was: <0>
-[ERROR]   BonusTest$AllDuPairs.longStreakBroken_middle:72 expected: <3> but was: <0>
-[ERROR]   BonusTest$AllDuPairs.streakLongerThanFive:78 expected: <8> but was: <5>
+[ERROR]   BonusTest$AllDefinitions.defs_score49_killThenBonus:23 expected: <3> but was: <0>
+[ERROR]   BonusTest$AllDuPairs.bestUnchanged_whenStreakNotGreater:52 expected: <3> but was: <0>
+[ERROR]   BonusTest$AllDuPairs.bonusOnly_belowThreshold_longStreak:46 expected: <3> but was: <0>
+[ERROR]   BonusTest$AllDuPairs.longStreakBroken_middle:58 expected: <3> but was: <0>
+[ERROR]   BonusTest$AllDuPairs.streakLongerThanFive:64 expected: <8> but was: <5>
 [INFO] 
 [ERROR] Tests run: 16, Failures: 5, Errors: 0, Skipped: 0
 [INFO] 
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  16.319 s
-[INFO] Finished at: 2026-11-15T12:38:41+08:00
+[INFO] Total time:  13.235 s
+[INFO] Finished at: 2026-11-20T16:08:01+08:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.2.5:test (default-test) on project lab10-dataflow: There are test failures.
 [ERROR] 

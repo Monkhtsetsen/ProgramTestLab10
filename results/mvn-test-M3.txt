@@ -30,12 +30,12 @@
 [INFO] -------------------------------------------------------
 [INFO] Running mn.edu.must.sqat.BonusTest
 [INFO] Running mn.edu.must.sqat.BonusTest$AllDuPairs
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.401 s -- in mn.edu.must.sqat.BonusTest$AllDuPairs
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.321 s -- in mn.edu.must.sqat.BonusTest$AllDuPairs
 [INFO] Running mn.edu.must.sqat.BonusTest$AllDefinitions
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.028 s -- in mn.edu.must.sqat.BonusTest$AllDefinitions
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.556 s -- in mn.edu.must.sqat.BonusTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.031 s -- in mn.edu.must.sqat.BonusTest$AllDefinitions
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.463 s -- in mn.edu.must.sqat.BonusTest
 [INFO] Running mn.edu.must.sqat.GcdTest
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.031 s -- in mn.edu.must.sqat.GcdTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 s -- in mn.edu.must.sqat.GcdTest
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -44,6 +44,6 @@
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  15.061 s
-[INFO] Finished at: 2026-11-15T12:39:36+08:00
+[INFO] Total time:  13.429 s
+[INFO] Finished at: 2026-11-20T16:08:47+08:00
 [INFO] ------------------------------------------------------------------------

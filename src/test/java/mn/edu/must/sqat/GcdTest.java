@@ -17,13 +17,13 @@ class GcdTest {
     }
 
     @Test
-    @DisplayName("DU x(13,16) y(13,16) tmp(16,18) — first loop body")
+    @DisplayName("DU x(13,16) y(13,16) y(13,17) tmp(16,18) — first loop body")
     void gcd_oneIteration() {
         assertEquals(5, DataFlowTargets.gcd(10, 5));
     }
 
     @Test
-    @DisplayName("DU x(17,16) x(17,20) y(18,15) y(18,16) — multiple iterations")
+    @DisplayName("DU x(17,16) x(17,20) y(18,15) y(18,16) y(18,17) — multiple iterations")
     void gcd_multipleIterations() {
         assertEquals(4, DataFlowTargets.gcd(12, 8));
     }
