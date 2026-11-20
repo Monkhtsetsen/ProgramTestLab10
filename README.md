@@ -38,7 +38,7 @@ OS name: "linux", version: "6.6.114.1-microsoft-standard-wsl2", arch: "amd64", f
 | x        | 13      | 20      | c-use | 13→15(F)→20    | `gcd_noLoop_yZero`                           | тийм       |
 | x        | 17      | 16      | c-use | 17→18→15(T)→16 | `gcd_multipleIterations`                     | тийм       |
 | x        | 17      | 20      | c-use | 17→18→15(F)→20 | `gcd_multipleIterations`                     | тийм       |
-| y        | 13      | 15      | p-use | 13→15          | `gcd_noLoop_yZero`, бусад тест               | тийм       |
+| y        | 13      | 15      | p-use | 13→15          | `gcd_noLoop_yZero`, `gcd_oneIteration`, `gcd_multipleIterations`, `gcd_zeroX_entersLoop` | тийм |
 | y        | 13      | 16      | c-use | 13→15(T)→16    | `gcd_oneIteration`                           | тийм       |
 | y        | 13      | 17      | c-use | 13→15(T)→16→17 | `gcd_oneIteration`, `gcd_multipleIterations`, `gcd_zeroX_entersLoop` | тийм |
 | y        | 18      | 15      | p-use | 18→15          | `gcd_multipleIterations`                     | тийм       |
@@ -198,12 +198,14 @@ All-defs (2 тест) хангагдсан ч branch 100% биш. Дутуу 2 �
 
 All-defs үед branch **14/16**; бүх 16 тестийн дараа **16/16**. Эцсийн `LINE_MISSED=1` — 7-р мөр, далд конструктор (хэвийн).
 
-**Branch 100% байхад үлдэх бодит DU хос:** **score (51, 56)**. Энэ хос биелэнэ (`baseOnly_exactThreshold`: `{1,1,1}`, threshold=3, `best=3<5`, return 5; зам 51→53(F)→56). Гэвч L50 ба L53-ийн дөрвөн салааг дараах оролтоор бүрэн гүйцээж болно, тэр хосыг огт хүрэлгүй:
+**Branch 100% байхад үлдэх бодит DU хос:** **score (51, 56)**. Энэ хос биелэнэ. Манай цуглуулгад `baseOnly_exactThreshold` (`{1,1,1}`, threshold=3, `best=3<5`, return 5) яг L50 **T** ба L53 **F**-ийг хамтад нь авч, зам 51→53(F)→56-г хамарна.
 
-- `{1,1,1,1,1}`, threshold=1 → оноо 8: L50 **T**, L53 **T**. score@51 L54 дээр use болж L56 хүртэлх зам тасарна (L54 шинэ def).
+Branch хамралт энэ хосыг шаарддаггүй. L50 ба L53-ийн дөрвөн салааг дараах хоёр оролтоор гүйцээж болно, L50 T-г L53 F-тэй хэзээ ч хамтад нь авалгүй:
+
+- `{1,1,1,1,1}`, threshold=1 → оноо 8: L50 **T**, L53 **T**. score@51 L54 дээр use болж, return дээрх use нь score@54.
 - `{0,0,0}`, threshold=1 → оноо 0: L50 **F**, L53 **F**. L51 ажиллахгүй, return нь score@49.
 
-Салаа тус бүр хамрагдсан ч **L50 T ба L53 F хамт** гарахгүй тул score@51 return дээр use болохгүй. Branch хамралт predicate бүрийн ирмэгийг тусад нь тоолдог; хоёр салааны хослолоор үүссэн def-clear замыг шаарддаггүй.
+Энэ хоёр оролт L50, L53-ийн салаа бүрийг хамрана, гэхдээ score(51,56) гарахгүй. Тиймээс branch 100% нь энэ DU хосыг баталгаажуулахгүй; түүнийг `baseOnly_exactThreshold` тусад нь хамарна.
 
 ---
 
@@ -231,7 +233,7 @@ All-defs үед branch **14/16**; бүх 16 тестийн дараа **16/16**.
 
 ## Дүгнэлт
 
-DU анализ def→use зам, kill, def-clear-ийг шууд заадаг тул урсгалын алдаа (M1 — streak def дутуу, M2 — буруу use) ихэнхдээ илэрдэг; JaCoCo branch 100% үүнийг бүрэн орлохгүй (M2 зарим сценариор амьд үлдэж, M3 тестэд огт илрэхгүй). Branch 16/16 байхад ч score(51,56) шиг биелэх хос тусдаа тестгүйгээр хамрагдахгүй. Хамгийн их цаг bonus-ийн DU хүснэгт, CFG, all-defs-ийн хоёр тестийн үндэслэл (score@49 ба score@51), M2 kill тестэнд орсон. Fault seeding-ийн үр дүнгээс M1 нь DU чиглэлийн тестийн давуу талыг, M3 нь static analysis-ийн шаардлагыг харуулна.
+DU анализ def→use зам, kill, def-clear-ийг шууд заадаг тул урсгалын алдаа (M1 — streak def дутуу, M2 — буруу use) ихэнхдээ илэрдэг; JaCoCo branch 100% үүнийг бүрэн орлохгүй (M2 зарим сценариор амьд үлдэж, M3 тестэд огт илрэхгүй). Салаа бүрийг тусад нь хамруулсан branch олонлог score(51,56)-г хамрахгүй; энэ хосыг `baseOnly_exactThreshold` (L50 T ба L53 F хамт) хамарна. Хамгийн их цаг bonus-ийн DU хүснэгт, CFG, all-defs-ийн хоёр тестийн үндэслэл (score@49 ба score@51), M2 kill тестэнд орсон. Fault seeding-ийн үр дүнгээс M1 нь DU чиглэлийн тестийн давуу талыг, M3 нь static analysis-ийн шаардлагыг харуулна.
 
 ---
 
